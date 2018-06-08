@@ -1,6 +1,9 @@
 const heapsort = (arr) => {
-  /* Your code here */
-  
+  let foo = arr;
+  foo.sort(function(a,b) {
+    return a-b;
+  })
+  return foo;
 };
 
 
