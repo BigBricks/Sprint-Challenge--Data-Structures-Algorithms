@@ -6,12 +6,27 @@ class BinarySearchTree {
   }
 
   depthFirstForEach(cb) {
-    /* Your code here */
-    
+    let foo = this;
+    //Set this to foo may or may not be necessary
+    cb(foo.value);
+    if(foo.left) {
+      foo.left.depthFirstForEach(cb);
+    }
+    if(foo.right) {
+      foo.right.depthFirstForEach(cb);
+    }    
   }
 
   breadthFirstForEach(cb) {
-    /* Your code here */
+  let queue = [this];
+  for(let i = 0; i < queue.length; i++) {
+    let tree = queue[i];
+    //Set the iterated this to tree so it makes more sense with what actions are occuring;
+    if(tree.left) queue.push(tree.left);
+    //LEFT HAS TO BE FIRST OR ELSE THE ARRAY IS MESSED UP
+    if(tree.right) queue.push(tree.right);
+    cb(tree.value);
+  }
 
   }
 
